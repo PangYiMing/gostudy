@@ -62,4 +62,21 @@ func main ()  {
 	fmt.Println("c == e ",c==e)
 
 
+	modify(c) // 数组传递过去，拷贝后传出去， 值传递
+	fmt.Println("main: c = ",c)
+	modify2(&c) // 地址传递
+	fmt.Println("main: c = ",c)
+
+
+}
+// 形参是实际参数的复制品
+func modify(a [5]int)  {
+	a[0] = 11
+	fmt.Println("main: c = ",a) 
+}
+
+// 指向地址 *a是数组指针
+func modify2(a *[5]int)  {
+	(*a)[0] = 11
+	fmt.Println("main: c = ",a)
 }
