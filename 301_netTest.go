@@ -10,8 +10,8 @@ import (
 
 func main(){
 	// get();
-	// sleep(1);
-	post();
+	sleep(1);
+	// post();
 }
 
 func get()  {
@@ -37,12 +37,12 @@ func post()  {
 			return
 		}
 		defer response.Body.Close()
-		body, newerr := ioutil.ReadAll(response.Body)
+		_, newerr := ioutil.ReadAll(response.Body)
 		if newerr != nil {
 			return
 		}
-		fmt.Println(string(body))
-		// fmt.Printf("01")
+		// fmt.Println(string(body))
+		fmt.Printf("01")
 }
 
 func sleep(a int)  {
@@ -50,7 +50,7 @@ func sleep(a int)  {
         // runtime.Gosched()
 		t1 := <-time.NewTimer(time.Second * 2).C
 		fmt.Printf("%d  %v\n",a, t1)
-		for i := 1; i <= 30; i++ {
+		for i := 1; i <= 300; i++ {
 			post();
 		}
 	}
