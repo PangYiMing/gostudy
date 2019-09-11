@@ -2,6 +2,7 @@ package main
 import "fmt"
 
 func main ()  {
+	// 数组 大小是固定的，传参默认拷贝
 	var a [10]int
 	var b [7]int
 	fmt.Printf("%d ,%d \n",len(a),len(b))
