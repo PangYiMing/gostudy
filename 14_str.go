@@ -20,6 +20,10 @@ func main ()  {
 	str2 := `sss
 	\n
 	`
-	fmt.Println("str =", str2)
+	fmt.Println("str2 =", str2)
+
+	str3 := str2+ str
+	fmt.Println("str3 =", str3)
+
 
 }
