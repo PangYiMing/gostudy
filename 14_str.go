@@ -31,4 +31,12 @@ func main() {
 		fmt.Println("true")
 	}
 	// https://blog.csdn.net/li_101357/article/details/80241224
+	pre := "\""
+	dis := "\""
+	var hostName string
+	testStr := "\"test\""
+	host := "test"
+	hostName = pre + host + dis
+
+	fmt.Println(strings.Count(testStr, hostName))
 }
