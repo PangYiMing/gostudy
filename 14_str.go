@@ -30,6 +30,7 @@ func main() {
 	if 2 == 2 && strings.EqualFold("GO", "go") {
 		fmt.Println("true")
 	}
+	// Go语言---strings包(字符串操作)
 	// https://blog.csdn.net/li_101357/article/details/80241224
 	pre := "\""
 	dis := "\""
