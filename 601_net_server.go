@@ -11,7 +11,7 @@ import (
 func index(w http.ResponseWriter, r *http.Request) {
 	// 往w里写入内容，就会在浏览器里输出
 	fmt.Fprintf(w, "Hello golang http!")
-	fmt.Println(r.Header["Accept-Language"], "Hello golang http!")
+	fmt.Println(r.Header["Accept-Language"][0], "Hello golang http!")
 }
 
 // w表示response对象，返回给客户端的内容都在对象里处理
