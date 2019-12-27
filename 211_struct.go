@@ -32,19 +32,30 @@ func main() {
 		BUVListTargetKey:     []string{"go", "python", "java"},
 		LastVersionTargetKey: "go",
 	}
-
+	backupItem2 := &BackUpKeyListItem{
+		BUVListTargetKey:     []string{"go", "python", "java"},
+		LastVersionTargetKey: "aago",
+	}
 	backup := &BackUpKeyList{T3: *backupItem}
 	fmt.Printf("backup=%v\n", backup) // prints 1
 
-	immutable := reflect.ValueOf(backup)
-	immutable = immutable.Elem()
+	immutable := reflect.ValueOf(backup).Elem()
 
 	val := immutable.FieldByName("T3")
 	fmt.Printf("backup=%v\n", val) // prints 1
 
-	// TODO 转类型
-	a := val.Interface().(BackUpKeyListItem)
+	// set
+	val.Set(reflect.ValueOf(*backupItem2))
+	fmt.Printf("origin backup=%v\n", val) // prints 1
+
+	//  转类型
+	// a := val.Interface().(BackUpKeyListItem)
 	// strArr := val.FieldByName("BUVListTargetKey")
-	fmt.Printf("backup=%v\n", a.LastVersionTargetKey) // prints 1
-	// fmt.Printf("backup=%v\n", strArr.FieldByIndex(0)) // prints 1
+	// fmt.Printf("backup=%v\n", a.LastVersionTargetKey) // prints 1
+	// a.LastVersionTargetKey = "a"
+	// fmt.Printf("origin backup=%v\n", backup.T3) // prints 1
+	// fmt.Printf("backup=%v\n", a)                // prints 1
+	// backup.T3 = a
+	// fmt.Printf("origin backup=%v\n", backup.T3) // prints 1
+
 }
